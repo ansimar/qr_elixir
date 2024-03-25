@@ -1,0 +1,20 @@
+<section>
+  
+  <div class="container mx-auto">
+    <div class="fs-1">
+      QR generator
+    </div>
+    <div>
+      <form action="/result" method="GET">
+        <input type="text" name="url" placeholder="Generate..." />
+        <button type="submit">Generate</button>
+      </form>
+    </div>
+    <div id="png">
+     <img src={"#{@qr}"} />
+     <img class='picture' src={ static_path(@conn, @qr) }> 
+     <%= @qr%>
+     <img class='picture' src="/priv/static/oreja.png" > 
+    </div>
+  </div>
+</section>
