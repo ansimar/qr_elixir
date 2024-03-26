@@ -8,7 +8,6 @@ defmodule QrElixirWeb.GeneratorController do
   def result(conn, params) do
     IO.inspect(">>>>>>>>>>> Generating a QR CODE <<<<<<<<<<<")
     IO.inspect(params)
-    IO.inspect(conn)
 
     %{"url" => url} = params
     render(conn, :home, url: url, qr: generate_qr(url))
