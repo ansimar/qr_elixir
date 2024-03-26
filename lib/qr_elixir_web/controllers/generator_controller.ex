@@ -23,6 +23,7 @@ defmodule QrElixirWeb.GeneratorController do
     rnd_name = for _ <- 1..10, into: "", do: <<Enum.random(~c"0123456789abcdef")>>
     file_name = "/uploads/generated_qr/#{rnd_name}.png"
     File.write!("priv/static#{file_name}", qr_code)
-    file_name
+
+    "/generated/#{rnd_name}.png"
   end
 end

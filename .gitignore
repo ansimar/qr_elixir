@@ -35,3 +35,5 @@ qr_elixir-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Folder with generated qr code
+/priv/static/uploads/generated_qr/

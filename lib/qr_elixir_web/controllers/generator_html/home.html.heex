@@ -10,11 +10,10 @@
         <button type="submit">Generate</button>
       </form>
     </div>
-    <div id="png">
-     <img src={"#{@qr}"} />
-     <img class='picture' src={ static_path(@conn, @qr) }> 
-     <%= @qr%>
-     <img class='picture' src="/priv/static/oreja.png" > 
-    </div>
+    <%= if !(@qr == nil) do %>
+      <div id="png">
+        <img src={"#{@qr}"} />
+      </div>
+    <% end %>
   </div>
 </section>

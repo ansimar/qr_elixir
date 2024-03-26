@@ -22,6 +22,18 @@ defmodule QrElixirWeb.Router do
     get "/result", GeneratorController, :result
   end
 
+  pipeline :generated_images do
+    plug Plug.Static,
+      at: "/generated",
+      from: {:qr_elixir, "priv/static/uploads/generated_qr"},
+      gzip: true
+  end
+
+  scope "/generated", QrElixirWeb do
+    pipe_through :generated_images
+    get "/*path", FileNotFoundController, :index
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", QrElixirWeb do
   #   pipe_through :api
